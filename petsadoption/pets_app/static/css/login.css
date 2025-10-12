@@ -1,0 +1,49 @@
+.login-form{
+    padding: 40px;
+    /* align-self: center; */
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    justify-self: center;
+    background-color: #FFF8E7;
+    border-radius: 10px;
+    width: 30%;
+    height: 350px;
+   
+}
+
+.login-form input{
+    border-radius: 5px;
+    border:1px solid grey;
+    width:100%;
+    padding: 10px;
+    
+    
+}
+
+.login-form label{
+    margin-right: 10px;
+    font-weight: bold;
+    color:#857163f6;
+}
+
+.haveAnAccText{
+    font-weight: bold;
+    text-align: center;
+}
+.signupButton{
+    text-decoration: underline;
+    color: #FEE2AD;
+}
+
+.login-submitbtn{
+    width: 50%;
+    margin: 0 auto;
+    padding:10px;
+    background-color: #F4A261;
+    font-weight: bold;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    margin-top: 15px;
+    color:white
+}

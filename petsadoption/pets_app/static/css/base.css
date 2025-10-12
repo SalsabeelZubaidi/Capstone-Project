@@ -1,0 +1,33 @@
+* {
+    font-family: "Poppins";
+}
+
+.navbar{
+    text-decoration: none;
+    display: flex;
+    flex-direction: row;
+    gap:30px;
+    background-color:  #aa8f7cd2;
+    
+    padding:20px;
+    justify-content: flex-end;
+    font-weight: 500;
+    border-radius: 10px;
+}
+li{
+    display: inline;
+   
+}
+a{
+    text-decoration: none;
+    color: white;
+    font-size: 17px;
+    text-transform: uppercase;
+}
+.formbtn{
+    background-color: transparent;
+    border: transparent;
+    font-weight: bold;
+    font-size: 15px;
+    color: red
+}
