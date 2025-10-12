@@ -1,6 +1,6 @@
 # Capstone-Project
 
-![PET ADOPTION ERD](<Screenshot 2025-10-09 125707.png>)
+![PET ADOPTION ERD](<Screenshot 2025-10-12 111608.png>)
 
 
 User Stories:
