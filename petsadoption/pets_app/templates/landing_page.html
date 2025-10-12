@@ -1,6 +1,41 @@
-{%extends 'base.html'%}
+{% extends 'base.html' %}
+{% load static %}
 
-{%block head%}
 
-<h1> WELCOME TO MY APP </h1>
-{%endblock%}
+{% block head %}
+    <link rel='stylesheet' href="{%static 'css/landing.css'%}"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Edu+NSW+ACT+Cursive:wght@400..700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.6/lottie.min.js"></script>
+    <style>
+        #dog-animation {
+        width: 300px;
+        height: 300px;
+        margin: 50px auto;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+    <body>
+    <div id="dog-animation"></div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+        var animation = lottie.loadAnimation({
+            container: document.getElementById('dog-animation'),
+            renderer: 'svg',
+            loop: true,
+            autoplay: true,
+            path: "{% static 'animation/dog_landing.json' %}"
+        });
+        });
+    </script>
+    <div class="welcomeText">
+        <h1>WELCOME TO PawPal</h1>
+        <p> where every paw deserves a home.</p>
+    </div>
+</body>
+{% endblock %}
+
+

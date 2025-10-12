@@ -7,8 +7,10 @@
     justify-self: center;
     background-color: #FFF8E7;
     border-radius: 10px;
-    width: 30%;
+    width: 35%;
     height: 350px;
+    gap:20px;
+    margin-top: 35px;
    
 }
 
@@ -30,10 +32,11 @@
 .haveAnAccText{
     font-weight: bold;
     text-align: center;
+    margin-top: 15px;
 }
 .signupButton{
     text-decoration: underline;
-    color: #FEE2AD;
+    color: #F4A261;
 }
 
 .login-submitbtn{

@@ -13,7 +13,10 @@
         <nav>
             <ul class='navbar'>
                 {%if user.is_authenticated%}
-                <li><a href="{% url 'home'%}">home</a></li>
+                <li><a href="">all pets</a></li>
+                <li><a href="">profile</a></li>
+                <li><a href="">your pets</a></li>
+                
                 <form action="{% url 'logout' %}" method="post">
                     {% csrf_token %}
                 <li><button type="submit" class="formbtn">Logout</button></li>
@@ -29,19 +32,11 @@
         {% endblock %}
     </head>
     
+  
     <body>
-        {% comment %} static content {% endcomment %}
-        <header>
-      {% comment %} <div>
-        <a href="/">
-        </a>
-      </div> {% endcomment %}
-      
-    </header>
-        <main>
             {%block content%}
             {%endblock%}
-        </main>   
+    
     </body>
 </html>    
     

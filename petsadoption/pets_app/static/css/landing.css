@@ -1,0 +1,13 @@
+/* body{
+    background:linear-gradient(135deg, #FFF8E7, #F4A261, #aa8f7cd2);
+} */
+.welcomeText{
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    text-align: center;
+}
+.welcomeText p{
+    font-family: "Edu NSW ACT Cursive";
+    color:#fa7e18;
+}

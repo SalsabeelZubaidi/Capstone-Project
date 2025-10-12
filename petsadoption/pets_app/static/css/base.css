@@ -1,5 +1,6 @@
 * {
     font-family: "Poppins";
+    margin:0
 }
 
 .navbar{
@@ -8,15 +9,12 @@
     flex-direction: row;
     gap:30px;
     background-color:  #aa8f7cd2;
-    
     padding:20px;
     justify-content: flex-end;
     font-weight: 500;
-    border-radius: 10px;
 }
 li{
     display: inline;
-   
 }
 a{
     text-decoration: none;
@@ -24,10 +22,17 @@ a{
     font-size: 17px;
     text-transform: uppercase;
 }
+a:hover{
+    color: black;
+}
 .formbtn{
     background-color: transparent;
     border: transparent;
     font-weight: bold;
     font-size: 15px;
-    color: red
+    cursor: pointer;
+
+}
+.formbtn:hover{
+    color: white;
 }
