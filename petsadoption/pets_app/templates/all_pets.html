@@ -1,0 +1,23 @@
+{% extends 'base.html'%}
+{%load static%}
+
+{%block head%}
+ <link rel='stylesheet' href="{%static 'css/all_pets.css'%}" />
+
+
+{%endblock%}
+{%block content%}
+{%if pets%}
+    <h2 class="allpets-h2">Explore All of Our Lovely Pets Available for Adoption</h2>
+    <div class="card-container"> 
+        {%for pet in pets%}
+                <div class="pet-cards">
+                    <img src= "{{pet.photo.url}}" style="height:250px; width:400px;"/>
+                    <h4>Type: <span> {{pet.type}} <span> </h4> 
+                    <h4>Breed: <span> {{pet.breed}} </span> </h4>
+                    <h4>Adoption Status:<span>{{pet.adoption_status}} </span> </h4>
+                </div>
+        {%endfor%}
+    </div>       
+{%endif%}                  
+{%endblock%}

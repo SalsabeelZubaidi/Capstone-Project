@@ -8,17 +8,20 @@ from django.contrib.auth import get_user_model
 
 User = get_user_model()   #built in user model
 
+adoption_status_options=[
+        ('approved', 'Approved'),
+        ('pending', 'Pending'),
+        ('rejected', 'Rejected'),
+    ]   
+
 class Pets(models.Model):
-    name=models.CharField(max_length=100)
+    type=models.CharField(max_length=100)
     breed=models.CharField(max_length=100)
-    age=models.IntegerField()
-    description=models.TextField()
     photo=models.ImageField(upload_to='pet_photos/', blank=True, null=True)
     is_available=models.BooleanField(default=True)
-    adoption_status=models.CharField(max_length=100)   
-
+    adoption_status = models.CharField(max_length=10, choices=adoption_status_options, default='pending')
     def __str__(self):   #to retrun the object name /// pet name // return object val as String
-        return self.name 
+        return self.type
 
 class PetUser(models.Model):
     user=models.ForeignKey(User, on_delete=models.CASCADE)
@@ -27,7 +30,7 @@ class PetUser(models.Model):
     applied_at=models.DateField(auto_now=True)
 
     def __str__(self):   
-        return f"{self.user.username} - {self.pet.name}"    
+        return f"{self.user.username} - {self.pet.type}"    
 
 
 class AdoptionRequest(models.Model):
@@ -39,6 +42,6 @@ class AdoptionRequest(models.Model):
     care_plan=models.TextField()
 
     def __str__(self):  
-        return f"{self.user.username} - {self.pet.name}"  
+        return f"{self.user.username} - {self.pet.type}"  
 
 

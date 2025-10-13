@@ -13,7 +13,8 @@
         <nav>
             <ul class='navbar'>
                 {%if user.is_authenticated%}
-                <li><a href="">all pets</a></li>
+                <li><a href="{% url 'home'%}">home</a></li>
+                <li><a href="{% url 'all-pets'%}">all pets</a></li>
                 <li><a href="">profile</a></li>
                 <li><a href="">your pets</a></li>
                 

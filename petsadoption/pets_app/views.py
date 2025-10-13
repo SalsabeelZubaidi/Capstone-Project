@@ -5,7 +5,7 @@ from django.http import HttpResponse
 from django.views import View
 from django.views.generic import ListView
 from django.contrib.auth.decorators import login_required
-
+from .models import *
 
 #my Views
 class LandingPage(View):
@@ -31,3 +31,8 @@ def signup(request):
 @login_required
 def home(request):
     return render (request, 'home.html')
+
+class AllPets(ListView):
+    model= Pets
+    template_name='all_pets.html'
+    context_object_name = 'pets' #this to loop over it in the html file

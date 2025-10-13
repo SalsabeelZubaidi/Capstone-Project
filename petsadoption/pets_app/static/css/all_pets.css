@@ -1,0 +1,35 @@
+.pet-cards{
+    border: 1px solid white;
+    display: flex;
+    flex-direction: column;
+    padding:20px;
+    height:400px;
+    width:400px;
+    /* text-align: center; */
+    gap:15px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    margin: 20px;
+    
+}
+img{
+    margin: 0 auto;
+}
+.pet-cards span{
+    font-weight: 400;
+    margin-left: 5px;
+}
+.card-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin-left: 10px;
+}
+
+.allpets-h2{
+    padding:20px;
+    margin: 20px;
+    text-transform: capitalize;
+    font-family: "Edu NSW ACT Cursive";
+    font-size: 35px;
+}
