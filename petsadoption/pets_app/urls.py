@@ -10,4 +10,8 @@ urlpatterns = [
     path('signup/', views.signup, name='signup'),
     path('home/', views.home, name='home'),
     path('pets/', views.AllPets.as_view(), name='all-pets'),
+    path('profile/', views.Profile.as_view(), name='profile'),
+    path('my-pets/', views.MyPets.as_view(), name='my-pets'),
+
+
 ]

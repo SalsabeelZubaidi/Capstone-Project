@@ -13,10 +13,10 @@
         <nav>
             <ul class='navbar'>
                 {%if user.is_authenticated%}
-                <li><a href="{% url 'home'%}">home</a></li>
-                <li><a href="{% url 'all-pets'%}">all pets</a></li>
-                <li><a href="">profile</a></li>
-                <li><a href="">your pets</a></li>
+                <li><a href="{% url 'home'%}" class="{% if request.resolver_match.url_name == 'home' %}selected{% endif %}">home</a></li>
+                <li><a href="{% url 'all-pets'%}" class="{% if request.resolver_match.url_name == 'all-pets' %}selected{% endif %}">all pets</a></li>
+                <li><a href="{% url 'profile'%}" class="{% if request.resolver_match.url_name == 'profile' %}selected{% endif %}">profile</a></li>
+                <li><a href="{% url 'my-pets'%}" class="{% if request.resolver_match.url_name == 'my-pets' %}selected{% endif %}">my pets</a></li>
                 
                 <form action="{% url 'logout' %}" method="post">
                     {% csrf_token %}

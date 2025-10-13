@@ -1,0 +1,64 @@
+.profile-header{
+    text-align: center;
+    margin: 22px;
+    font-family: "Edu NSW ACT Cursive";
+    font-weight: 400;
+    text-transform: capitalize;
+    padding: 20px;
+}
+
+.adoption-req{
+    border:2px;
+    border-radius: 10px;
+    background-color: burlywood;
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+    margin: 20px;
+    padding: 15px;
+    width:50%
+    
+}
+.main-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 15px;
+}
+
+
+
+.helptext{
+    display: none;
+}
+
+.form-container{
+    border:2px;
+    border-radius: 10px;
+    background-color: antiquewhite;
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+    margin: 20px;
+    padding: 15px;
+    width:50%
+
+}
+form input{
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border:1px solid grey;
+    padding:5px;
+}
+
+
+.form-container button{
+    font-weight: bold;
+    margin-left: auto;
+    border:1px solid grey;
+    padding:5px;
+    border-radius: 7px;
+    cursor: pointer;
+    margin-top: 10px;
+    background-color: white;
+}

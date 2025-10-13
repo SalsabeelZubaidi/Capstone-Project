@@ -36,3 +36,7 @@ a:hover{
 .formbtn:hover{
     color: white;
 }
+.selected {
+  color: black;
+  font-weight: bold;
+}

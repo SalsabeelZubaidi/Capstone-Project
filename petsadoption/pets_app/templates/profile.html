@@ -1,0 +1,39 @@
+{%extends 'base.html'%}
+{%load static%}
+
+{%block head%}
+    <link rel='stylesheet' href="{%static 'css/profile.css'%}"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Edu+NSW+ACT+Cursive:wght@400..700&display=swap" rel="stylesheet">
+{%endblock%}
+
+{%block content%}
+
+<h1 class='profile-header'> Edit Your Profile and Check out your adoption requests!</h1>
+<div class='main-container'>
+    <div class='form-container'> 
+        <h3>Edit Your Profile</h3>
+        <form method="POST" >
+            {% csrf_token %}
+            {{form}}
+            <button type="submit">Save Changes</button>
+        </form>
+        {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                <li class="{{ message.tags }}">{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </div>    
+    <div class='adoption-req'>
+        <h3>Your Adoption Requests</h3>
+        <h4> req 1 : status </h4>
+        <h4> req 2</h4>
+        <h4> req 3</h4>
+    </div>
+</div>
+  
+
+{%endblock%}

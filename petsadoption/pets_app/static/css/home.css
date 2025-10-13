@@ -1,0 +1,19 @@
+/* h1{
+    color:red;
+} */
+
+.home-welcome-msg{
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    text-align: center;
+    margin: 100px auto;
+    z-index: 0;
+}
+
+.lottie{
+    position: absolute;
+    opacity: .8; 
+    z-index: -1;
+    left:200px
+}

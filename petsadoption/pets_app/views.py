@@ -6,6 +6,9 @@ from django.views import View
 from django.views.generic import ListView
 from django.contrib.auth.decorators import login_required
 from .models import *
+from .forms import *
+from django.contrib import messages
+
 
 #my Views
 class LandingPage(View):
@@ -36,3 +39,25 @@ class AllPets(ListView):
     model= Pets
     template_name='all_pets.html'
     context_object_name = 'pets' #this to loop over it in the html file
+
+class Profile(View):
+    model=User
+    template_name='profile.html'
+    context_object_name='user'
+
+    def get(self, request):
+        form = UserEditForm(instance=request.user)
+        return render(request, self.template_name, {'form': form, 'user': request.user})
+
+    
+    def post(self, request):
+        form = UserEditForm(request.POST, instance=request.user)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Profile updated successfully!')
+            return redirect('profile')
+        return render(request, self.template_name, {'form': form , 'user': request.user})
+
+class MyPets(ListView):
+    model=PetUser
+    template_name='my_pets.html'

@@ -9,16 +9,21 @@ from django.contrib.auth import get_user_model
 User = get_user_model()   #built in user model
 
 adoption_status_options=[
-        ('approved', 'Approved'),
-        ('pending', 'Pending'),
-        ('rejected', 'Rejected'),
-    ]   
+        ('Approved', 'Approved'),
+        ('Pending', 'Pending'),
+        ('Rejected', 'Rejected'),
+    ]
+availability_options=[
+    ('Availabile' , 'Availabile'),
+    ('Not Availabile' , 'Not Availabile')
+
+]  
 
 class Pets(models.Model):
     type=models.CharField(max_length=100)
     breed=models.CharField(max_length=100)
     photo=models.ImageField(upload_to='pet_photos/', blank=True, null=True)
-    is_available=models.BooleanField(default=True)
+    is_available=models.CharField(max_length=20, choices=availability_options, default='availabile')
     adoption_status = models.CharField(max_length=10, choices=adoption_status_options, default='pending')
     def __str__(self):   #to retrun the object name /// pet name // return object val as String
         return self.type
@@ -26,7 +31,7 @@ class Pets(models.Model):
 class PetUser(models.Model):
     user=models.ForeignKey(User, on_delete=models.CASCADE)
     pet=models.ForeignKey(Pets,on_delete=models.CASCADE)
-    is_favorite=models.BooleanField(default=True)
+    is_favorite=models.BooleanField(default=False)
     applied_at=models.DateField(auto_now=True)
 
     def __str__(self):   
