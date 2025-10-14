@@ -13,7 +13,7 @@
         {% if adopted_pets %}
                 {% for pet in adopted_pets %}
                     <div class="card">
-                        <img src="{{ pet.photo.url }}" alt="{{ pet.type }}" style="height:250px; width:400px;">
+                        <img src="{{ pet.photo.url }}" alt="{{ pet.type }}">
                         <h4>Type: {{ pet.type }}</h4>
                         <h4>Breed: {{ pet.breed }}</h4>
                     </div>
@@ -28,7 +28,7 @@
         {% if favorite_pets %}
                 {% for pet in favorite_pets %}
                     <div class='card'>
-                        <img src="{{ pet.photo.url }}" alt="{{ pet.type }}" style="height:250px; width:400px;">
+                        <img src="{{ pet.photo.url }}" alt="{{ pet.type }}">
                         <h4>Type: {{ pet.type }}</h4>
                         <h4>Breed: {{ pet.breed }}</h4>
                     </div>
