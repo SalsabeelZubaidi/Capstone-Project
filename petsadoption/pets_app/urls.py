@@ -13,6 +13,8 @@ urlpatterns = [
     path('profile/', views.Profile.as_view(), name='profile'),
     path('my-pets/', views.MyPets.as_view(), name='my-pets'),
     path('adopt/<int:pet_id>/', views.adopt_pet, name='adopt_pet'),
-    path('delete_request/<int:request_id>/', views.delete_adoption_request, name='delete_request')
+    path('delete_request/<int:request_id>/', views.delete_adoption_request, name='delete_request'),
+    path('toggle_fav/<int:pet_id>/', views.toggle_favorite, name='toggle_fav'),
+
 
 ]

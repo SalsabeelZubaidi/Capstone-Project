@@ -28,7 +28,14 @@
                     <h4>Availablity: <span>{{pet.is_available}} </span> </h4>
                     <div class="pets-card-btn-container">
                         <button  class="pets-card-btn1" onclick="location.href='{% url 'adopt_pet' pet.id %}'">Apply for adoption</button>
-                        <button class="pets-card-btn2" >Add to Fav</button>
+                        <button class="pets-card-btn2" onclick="location.href='{% url 'toggle_fav' pet.id %}'">
+                            {% if pet.id in favorite_pet_ids %}
+                                Remove from Fav
+                            {% else %}
+                                Add to Fav
+                            {% endif %}
+                        </button>
+
                     </div>
                 </div>
         {%endfor%}

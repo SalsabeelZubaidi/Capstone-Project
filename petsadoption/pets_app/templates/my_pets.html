@@ -1,8 +1,43 @@
 {%extends 'base.html'%}
+{%load static%}
 
+{%block head%}
+    <link rel='stylesheet' href="{%static 'css/my_pets.css'%}"/>
+{%endblock%}
 {%block content%}
-<h1>FAV pets</h1>
-<h1>adopted pets</h1>
 
+
+<div class="mypets-mainConatiner"> 
+    <h2>My Adopted Pets</h2>
+   <div class="adopted_container">
+        {% if adopted_pets %}
+                {% for pet in adopted_pets %}
+                    <div class="card">
+                        <img src="{{ pet.photo.url }}" alt="{{ pet.type }}" style="height:250px; width:400px;">
+                        <h4>Type: {{ pet.type }}</h4>
+                        <h4>Breed: {{ pet.breed }}</h4>
+                    </div>
+                {% endfor %}
+        {% else %}
+            <h1>No adopted pets yet</h1>
+        {% endif %}
+    </div> 
+
+    <h2>My Favorite Pets</h2>
+    <div class="favs-container">
+        {% if favorite_pets %}
+                {% for pet in favorite_pets %}
+                    <div class='card'>
+                        <img src="{{ pet.photo.url }}" alt="{{ pet.type }}" style="height:250px; width:400px;">
+                        <h4>Type: {{ pet.type }}</h4>
+                        <h4>Breed: {{ pet.breed }}</h4>
+                    </div>
+                {% endfor %}
+        {% else %}
+            <p>You have no favorite pets yet.</p>
+        {% endif %}
+    <div>
+
+</div>    
 
 {%endblock%}

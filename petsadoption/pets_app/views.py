@@ -8,7 +8,8 @@ from django.contrib.auth.decorators import login_required
 from .models import *
 from .forms import *
 from django.contrib import messages
-
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.views.generic import TemplateView
 
 #my Views
 class LandingPage(View):
@@ -40,6 +41,18 @@ class AllPets(ListView):
     template_name='all_pets.html'
     context_object_name = 'pets' #this to loop over it in the html file
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        if self.request.user.is_authenticated:
+            # get IDs of pets the user has favorited
+            context['favorite_pet_ids'] = PetUser.objects.filter(
+                user=self.request.user,
+                is_favorite=True
+            ).values_list('pet_id', flat=True)
+        else:
+            context['favorite_pet_ids'] = []
+        return context
+
 class Profile(View):
     model=User
     template_name='profile.html'
@@ -67,12 +80,27 @@ class Profile(View):
             'requests': requests
         })
 
-class MyPets(ListView):
-    model=PetUser
-    template_name='my_pets.html'
-    
+class MyPets(LoginRequiredMixin, TemplateView):
+    template_name = 'my_pets.html'
 
-class AdoptRequest(ListView):
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        user = self.request.user
+
+        # Adopted pets (approved requests)
+        context['adopted_pets'] = Pets.objects.filter(
+            adoptionrequest__user=user,
+            adoptionrequest__adoption_status='Approved'
+        ).distinct()
+
+        # Favorite pets
+        context['favorite_pets'] = Pets.objects.filter(
+            petuser__user=user,
+            petuser__is_favorite=True
+        ).distinct()
+
+        return context
+class AdoptRequest(ListView):  #to return to the user all of his adoption requests
     model=AdoptionRequest
     template_name='profile.html'
     context_object_name = 'requests'
@@ -82,7 +110,7 @@ class AdoptRequest(ListView):
 
 
 @login_required
-def adopt_pet(request, pet_id):
+def adopt_pet(request, pet_id):   #to allow the user to make an adoption request
     pet = get_object_or_404(Pets, id=pet_id)
 
     if AdoptionRequest.objects.filter(user=request.user, pet=pet).exists():
@@ -106,8 +134,23 @@ def adopt_pet(request, pet_id):
 
 
 @login_required
-def delete_adoption_request(request, request_id):
+def delete_adoption_request(request, request_id):      #to allow the user to delete the adoption request
     adoption_request = get_object_or_404(AdoptionRequest, id=request_id, user=request.user)
     adoption_request.delete()
     messages.success(request, "Your adoption request has been deleted.")
     return redirect('profile')  # or wherever you list the requests
+
+@login_required
+def toggle_favorite(request, pet_id):
+    pet = get_object_or_404(Pets, id=pet_id)
+    
+    pet_user, created = PetUser.objects.get_or_create(user=request.user, pet=pet)
+    pet_user.is_favorite = not pet_user.is_favorite  # toggle favorite
+    pet_user.save()
+    
+    if pet_user.is_favorite:
+        messages.success(request, f"{pet.type} has been added to your favorites!")
+    else:
+        messages.info(request, f"{pet.type} has been removed from your favorites.")
+    
+    return redirect('all-pets')
