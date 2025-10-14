@@ -1,12 +1,17 @@
 {% extends 'base.html' %}
 {% load static %}
 
+{%block head%}
+<link rel='stylesheet' href={%static 'css/adoption_request.css'%} />
+{%endblock%}
 {% block content %}
-  <h2>Adopt {{ pet.type }}</h2>
+<div class="adopt-form-container">
+  <h2>Adoption Request for {{pet.breed}} {{ pet.type }}</h2>
 
   <form method="POST">
     {% csrf_token %}
     {{ form.as_p }}
     <button type="submit">Submit Request</button>
   </form>
+</div>
 {% endblock %}

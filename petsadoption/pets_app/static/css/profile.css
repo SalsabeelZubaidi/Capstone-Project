@@ -1,10 +1,10 @@
 .profile-header {
-    text-align: center;
-    margin: 20px auto;
-    font-family: "Edu NSW ACT Cursive", cursive;
-    font-weight: 400;
+    /* text-align: center; */
+    margin: 10px 20px;;
+    font-family: "Gravitas One";
+    /* font-weight: 400; */
     text-transform: capitalize;
-    font-size: clamp(1.8rem, 3vw, 2.5rem);
+    font-size: 25px;
     padding: 10px 20px;
     color: #4b3b2b;
 }
@@ -15,21 +15,21 @@
     flex-direction: row;
     justify-content: space-around;
     flex-wrap: wrap;
-    margin: 20px 20px 0px 20px;
+    margin: 35px 20px 0px 20px;
     gap: 35px;
     padding: 0 10px;
 }
 
 
 .form-container {
-    flex: 1 1 300px;
-    background-color: #fff5e6;
+    flex: 1 1 200px;
+    background-color: rgb(232, 226, 223); 
     border-radius: 12px;
     padding: 30px;
     display: flex;
     flex-direction: column;
-    gap: 15px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+
 }
 
 .form-container h3 {
@@ -41,27 +41,31 @@
 .helptext{
     display: none;
 } 
-.form-container form input, 
-.form-container form select, 
-.form-container form textarea {
+.form-container form input {
     width: 100%;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     border-radius: 6px;
     border: 1px solid #ccc;
-    /* padding: 5px; */
     font-size: 15px;
     padding: 7px;
+
+}
+.form-container form label{
+    font-weight: 500;
+    text-transform: capitalize;
 }
 
 .form-container button {
     align-self: flex-start;
     font-weight: bold;
-    border: 1px solid grey;
+    border: 1px solid transparent;
     padding: 8px 15px;
     border-radius: 7px;
     cursor: pointer;
-    background-color: #ffebcc;
+    background-color: #F4A261;
     transition: background-color 0.3s;
+    margin-top: 10px;
+    color: white;
 }
 
 .form-container button:hover {
@@ -94,7 +98,7 @@
 
 .adoption-req {
     flex: 1 1 300px;
-    background-color: #f5deb3; 
+    background-color: rgb(237, 235, 234); 
     border-radius: 12px;
     padding: 20px;
     display: flex;

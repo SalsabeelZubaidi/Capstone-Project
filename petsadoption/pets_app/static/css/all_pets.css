@@ -38,12 +38,13 @@
 
 .allpets-h2 {
     padding: 20px;
-    margin: 20px auto;
+    margin: 20px 0px 20px 63px;
     text-transform: capitalize;
-    font-family: "Edu NSW ACT Cursive", cursive;
-    font-size: clamp(1.8rem, 3vw, 2.5rem);
-    font-weight: 400;
-    text-align: center;
+    font-family: "Gravitas One";
+    /* font-size:  */
+    font-size: 30px;
+    /* font-weight: 400; */
+    text-align: left;
 }
 
 
