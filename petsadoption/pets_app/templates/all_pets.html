@@ -6,10 +6,17 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Edu+NSW+ACT+Cursive:wght@400..700&display=swap" rel="stylesheet">
-
+    
 
 {%endblock%}
 {%block content%}
+{% if messages %}
+        {% for message in messages %}
+            <script>
+                alert("{{ message }}");
+            </script>
+        {% endfor %}
+    {% endif %}
 {%if pets%}
     <h2 class="allpets-h2">Explore All of Our Lovely Pets</h2>
     <div class="card-container"> 
@@ -20,7 +27,7 @@
                     <h4>Breed: <span> {{pet.breed}} </span> </h4>
                     <h4>Availablity: <span>{{pet.is_available}} </span> </h4>
                     <div class="pets-card-btn-container">
-                        <button  class="pets-card-btn1">Apply for adoption</button>
+                        <button  class="pets-card-btn1" onclick="location.href='{% url 'adopt_pet' pet.id %}'">Apply for adoption</button>
                         <button class="pets-card-btn2" >Add to Fav</button>
                     </div>
                 </div>

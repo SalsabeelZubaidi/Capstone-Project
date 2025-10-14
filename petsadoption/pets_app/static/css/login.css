@@ -37,6 +37,7 @@
 .signupButton{
     text-decoration: underline;
     color: #F4A261;
+    cursor: pointer;
 }
 
 .login-submitbtn{
@@ -48,5 +49,6 @@
     border: 1px solid transparent;
     border-radius: 10px;
     margin-top: 15px;
-    color:white
+    color:white;
+    cursor: pointer;
 }

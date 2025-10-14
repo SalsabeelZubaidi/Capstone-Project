@@ -41,9 +41,8 @@ class PetUser(models.Model):
 class AdoptionRequest(models.Model):
     user=models.ForeignKey(User, on_delete=models.CASCADE)
     pet=models.ForeignKey(Pets,on_delete=models.CASCADE)
-    adoption_status=models.CharField(max_length=100)
+    adoption_status = models.CharField(max_length=10, choices=adoption_status_options, default='pending')
     requested_at=models.DateField(auto_now=True)
-    commitment=models.BooleanField(default=True)
     care_plan=models.TextField()
 
     def __str__(self):  

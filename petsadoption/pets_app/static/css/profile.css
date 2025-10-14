@@ -17,7 +17,17 @@
     margin: 20px;
     padding: 15px;
     width:50%
-    
+}
+th{
+    text-align: left;
+}
+.adoption-req button{
+    background-color: red;
+    color: white;
+    border:1px solid red;
+    border-radius: 10px;
+    /* width: 20%; */
+    cursor: pointer;
 }
 .main-container{
     display: flex;

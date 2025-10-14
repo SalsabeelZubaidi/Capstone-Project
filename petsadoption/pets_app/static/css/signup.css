@@ -47,6 +47,7 @@
 .loginButton{
     text-decoration: underline;
     color: #F4A261;
+    cursor: pointer;
   
 }
 
@@ -60,4 +61,5 @@
     border: 1px solid transparent;
     border-radius: 10px;
     margin-top: 15px;
+    cursor: pointer;
 }
