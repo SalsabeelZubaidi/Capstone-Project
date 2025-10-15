@@ -26,13 +26,10 @@
 }
 .second-block p{
     font-size: 22px;
-    /* align-self: center; */
-    /* justify-self: center; */
     text-align: justify;
 }
 .second-block strong{
     font-size: 20px;
-    /* text-align: center; */
     text-transform: capitalize;
 }
 .lottie {
@@ -40,9 +37,7 @@
     width: 90%;
     height: 90%;
     opacity: 0.8;
-    /* z-index: -1; */
     left:110px;
-    /* top:-100; */
 }
 
 .home-welcome-msg{
@@ -54,6 +49,7 @@
 }
 
 .home-welcome-msg h1 {
+    margin: 100px auto;
     font-size: 75px;
     font-family: "Dancing Script", cursive;
 

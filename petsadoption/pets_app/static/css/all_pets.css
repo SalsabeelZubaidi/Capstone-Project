@@ -69,19 +69,17 @@
 
 .pets-card-btn1 {
     border: 1px solid transparent;
-    /* background-color: orange; */
     background-color: #BDE3C3;
 }
 
 .pets-card-btn1:hover {
     background-color: #8eaf93;
+
 }
 
 .pets-card-btn2 {
     border: 2px solid transparent;
-    /* background-color: brown; */
     background-color: #FFDE63;
-
 }
 
 .pets-card-btn2:hover {

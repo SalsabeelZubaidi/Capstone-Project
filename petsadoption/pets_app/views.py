@@ -12,10 +12,14 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import TemplateView
 
 #my Views
-class LandingPage(View):
+class LandingPage(View):   #this can be accessed only by new or logged out users
     template_name = "landing_page.html"
-    
-    def get(self,request):
+
+    def get(self, request):
+        # If the user is logged in, redirect them to another page
+        if request.user.is_authenticated:
+            return redirect('home') 
+
         return render(request, self.template_name)
     
 def signup(request):
@@ -23,9 +27,9 @@ def signup(request):
     if request.method == "POST":
         form = CustomUserCreationForm(request.POST)  # built-in form for creating users
         if form.is_valid():
-            user = form.save()  # save user to DB
-            login(request, user)  # log the user in immediately
-            return redirect('home')  # redirect to home page after signup
+            user = form.save()  
+            login(request, user)  # log the user in immediately after creating an account
+            return redirect('home')  
         else:
             error_message = 'Invalid signup - try again'
     else:
@@ -36,7 +40,7 @@ def signup(request):
 def home(request):
     return render (request, 'home.html')
 
-class AllPets(ListView):
+class AllPets(LoginRequiredMixin, ListView):
     model= Pets
     template_name='all_pets.html'
     context_object_name = 'pets' #this to loop over it in the html file
@@ -53,7 +57,7 @@ class AllPets(ListView):
             context['favorite_pet_ids'] = []
         return context
 
-class Profile(View):
+class Profile(LoginRequiredMixin, View):
     model=User
     template_name='profile.html'
     context_object_name='user'
@@ -100,7 +104,7 @@ class MyPets(LoginRequiredMixin, TemplateView):
         ).distinct()
 
         return context
-class AdoptRequest(ListView):  #to return to the user all of his adoption requests
+class AdoptRequest(LoginRequiredMixin, ListView):  #to return to the user all of his adoption requests
     model=AdoptionRequest
     template_name='profile.html'
     context_object_name = 'requests'
@@ -138,7 +142,7 @@ def delete_adoption_request(request, request_id):      #to allow the user to del
     adoption_request = get_object_or_404(AdoptionRequest, id=request_id, user=request.user)
     adoption_request.delete()
     messages.success(request, "Your adoption request has been deleted.")
-    return redirect('profile')  # or wherever you list the requests
+    return redirect('profile') 
 
 @login_required
 def toggle_favorite(request, pet_id):
@@ -148,30 +152,7 @@ def toggle_favorite(request, pet_id):
     pet_user.is_favorite = not pet_user.is_favorite  # toggle favorite
     pet_user.save()
     
-    if pet_user.is_favorite:
-        messages.success(request, f"{pet.type} has been added to your favorites!")
-    else:
-        messages.info(request, f"{pet.type} has been removed from your favorites.")
-    
     return redirect('all-pets')
-
-# @login_required
-# def name_adopted_pet(request, adoption_id):
-#     adoption = get_object_or_404(
-#         AdoptionRequest, id=adoption_id, user=request.user, adoption_status='Approved'
-#     )
-
-#     if request.method == 'POST':
-#         form = PetNameForm(request.POST, instance=adoption)
-#         if form.is_valid():
-#             form.save()
-#             messages.success(request, f"You named your {adoption.pet.type} '{adoption.pet_name}'! 🐶")
-#             return redirect('my-pets')
-#     else:
-#         form = PetNameForm(instance=adoption)
-
-#     return render(request, 'name_pet.html', {'form': form, 'adoption': adoption})
-
 
 @login_required
 def name_pet_inline(request, adoption_id):

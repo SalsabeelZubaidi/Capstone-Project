@@ -1,13 +1,57 @@
-/* body{
-    background:linear-gradient(135deg, #FFF8E7, #F4A261, #aa8f7cd2);
-} */
+
+.main-landing-container{
+    display: flex;
+    flex-direction: column;
+    gap:80px;
+}
+.first-row{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.animation{
+    height:100%;
+    width: 100%;
+}
+.dog-animation {
+    width: 300px;
+    height: 300px;
+    margin: 50px auto;
+}
 .welcomeText{
     display: flex;
     flex-direction: column;
     justify-self: center;
     text-align: center;
+    font-size: 28px;
 }
+
 .welcomeText p{
     font-family: "Edu NSW ACT Cursive";
     color:#fa7e18;
+    font-size: 25px;
+}
+
+.second-row{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    justify-content: flex-start;
+    background-color:#f6e8d6ea;
+    padding: 60px;
+    min-height: 800px;
+}
+
+.second-row h1{
+    font-family: "Dancing Script";
+    font-size: 60px;
+    text-transform: capitalize;
+}
+.second-row p{
+    font-size: 22px;
+    text-align: justify;
+}
+.second-row strong{
+    font-size: 20px;
+    text-transform: capitalize;
 }

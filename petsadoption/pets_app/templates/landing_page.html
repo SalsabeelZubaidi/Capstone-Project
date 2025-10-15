@@ -7,35 +7,41 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Edu+NSW+ACT+Cursive:wght@400..700&display=swap" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.6/lottie.min.js"></script>
-    <style>
-        #dog-animation {
-        width: 300px;
-        height: 300px;
-        margin: 50px auto;
-        }
-    </style>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@1.5.7/dist/lottie-player.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
+
 {% endblock %}
 
 {% block content %}
-    <body>
-    <div id="dog-animation"></div>
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-        var animation = lottie.loadAnimation({
-            container: document.getElementById('dog-animation'),
-            renderer: 'svg',
-            loop: true,
-            autoplay: true,
-            path: "{% static 'animation/dog_landing.json' %}"
-        });
-        });
-    </script>
-    <div class="welcomeText">
-        <h1>WELCOME TO PawPal</h1>
-        <p> where every paw deserves a home.</p>
+    <div class="main-landing-container">
+    <div class='first-row'>  
+        <div class='animation'>  
+            <lottie-player
+            class="dog-animation"
+            src="{% static 'animation/dog_landing.json' %}"
+            background="transparent"
+            speed="1"
+            style="width: 400px; height: 220px;"
+            loop
+            autoplay>
+        </lottie-player>
+
+        </div>
+        <div class="welcomeText">
+            <h1>WELCOME TO PawPal</h1>
+            <p> where every paw deserves a home.</p>
+        </div>
     </div>
-</body>
+
+    <div class='second-row'>
+        <h1> about us </h1>
+        <p> At PawPal, we believe every pet deserves a loving home, and every human deserves a loyal companion! 🐶🐱 <br/>
+        Our platform makes finding your perfect furry friend simple, fun, and heartwarming.  </p>
+        <strong>Browse adorable pets, learn their stories, and start your adoption journey today. Because sometimes, love comes with paws! </strong>
+    </div>
+</div>
 {% endblock %}
 
 

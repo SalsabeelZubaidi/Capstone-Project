@@ -40,13 +40,16 @@
     align-items: center;
     overflow: hidden;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border-radius: 250px;
-    padding:30px;
+    padding:15px;
 }
 
-.mypets-card:hover ,.mypets-fav-card:hover{
-    transform: translateY(-5px);
+.mypets-card:hover{
+    transform: translateY(-20px);
     box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+}
+
+.mypets-fav-card:hover{
+    transform: translateY(-5px);
 }
 .mypets-card img{
     width: 50%;
@@ -58,7 +61,7 @@
     border:5px solid #BDE3C3;
 }
 .mypets-fav-card img{
-    width: 60%;
+    width: 70%;
     height:max-content;
     height: 190px;
     object-fit: cover;

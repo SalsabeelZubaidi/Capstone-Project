@@ -2,7 +2,7 @@
   max-width: 500px;
   margin: 50px auto;
   padding: 30px 40px;
-  background: #fff9f5;
+  background-color: white;
   border-radius: 15px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
   display: flex;
@@ -15,15 +15,13 @@
   transform: translateY(-5px);
 }
 
-/* Form heading */
 .adopt-form-container h2 {
   text-align: center;
-  color: #F4A261;
+  color: #BDE3C3;
   font-size: 22px;
   margin-bottom: 20px;
 }
 
-/* Form fields */
 .adopt-form-container form {
   display: flex;
   flex-direction: column;
@@ -31,31 +29,23 @@
 }
 
 .adopt-form-container label{
-    font-size: 20px;
+    font-size: 18px;
     font-weight: bold;
 }
-.adopt-form-container input,
-.adopt-form-container select,
 .adopt-form-container textarea {
+  border-color: #BDE3C3;
+  min-width: 463px;
   padding: 12px 15px;
-  border: 1px solid #f0c6b6;
   border-radius: 10px;
   font-size: 18px;
   outline: none;
   transition: all 0.3s ease;
 }
 
-.adopt-form-container input:focus,
-.adopt-form-container select:focus,
-.adopt-form-container textarea:focus {
-  border-color: #F4A261;
-  box-shadow: 0 0 8px rgba(255, 107, 107, 0.3);
-}
-
 
 .adopt-form-container button {
-  background: #F4A261;
-  color: #fff;
+  background: #99bb9e;
+  color: white;
   padding: 12px;
   border: none;
   border-radius: 12px;
@@ -65,7 +55,7 @@
 }
 
 .adopt-form-container button:hover {
-  background: #F4A261;
+  background: #6a7c6d;
   transform: translateY(-2px);
 }
 

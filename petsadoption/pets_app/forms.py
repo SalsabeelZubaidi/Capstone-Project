@@ -8,8 +8,7 @@ class CustomUserCreationForm(UserCreationForm):
 
     class Meta:
         model = User
-        # Only show these fields in the form
-        fields = ("username", "first_name", "last_name", "password1", "password2")
+        fields = ("username", "first_name", "last_name", "password1", "password2")  #feild to be shown in the form
 
 
 class UserEditForm(forms.ModelForm):

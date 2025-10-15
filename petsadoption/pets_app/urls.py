@@ -16,6 +16,4 @@ urlpatterns = [
     path('delete_request/<int:request_id>/', views.delete_adoption_request, name='delete_request'),
     path('toggle_fav/<int:pet_id>/', views.toggle_favorite, name='toggle_fav'),
     path('name-pet-inline/<int:adoption_id>/', views.name_pet_inline , name='name-pet-inline'),
-
-
 ]
