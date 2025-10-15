@@ -2,24 +2,24 @@
     display: flex;
     flex-direction: column;
     gap: 50px;
-    /* padding: 40px; */
     min-height: 100vh;
 }
 .cards_container {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    gap: 30px;
+    gap: 50px;
     justify-content: center;
 }
 
-
-.mypets-card, .mypets-fav-card {
+.mypets-card{
     display: flex;
+    flex: 1 1 300px;
     flex-direction: row;
     justify-content: flex-start;
     width: 100%;
     max-width: 450px;
+    width: auto;
     min-height: 200px;
     padding: 15px;
     border-radius: 10px;
@@ -31,6 +31,17 @@
     overflow: hidden;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     margin-bottom: 70px;
+    margin:auto 25px;
+}
+
+.mypets-fav-card{
+    display: flex; 
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 250px;
+    padding:30px;
 }
 
 .mypets-card:hover ,.mypets-fav-card:hover{
@@ -38,33 +49,35 @@
     box-shadow: 0 10px 25px rgba(0,0,0,0.4);
 }
 .mypets-card img{
-    width: 45%;
+    width: 50%;
     height:max-content;
     height: 190px;
     object-fit: cover;
     border-radius: 400px;
     margin-bottom: 10px;
     border:5px solid #BDE3C3;
-
 }
-
 .mypets-fav-card img{
-    width: 45%;
+    width: 60%;
+    height:max-content;
     height: 190px;
     object-fit: cover;
-    border-radius: 300px;
+    border-radius: 400px;
     margin-bottom: 10px;
-    /* border:5px solid rgb(162, 202, 113); */
     border:5px solid rgb(246, 233, 107);
-
 }
+.fav-card-content{
+    font-weight: bold;
+    color: black;
+    text-align: center;
+}
+
 
 .card-content {
     display: flex;
     flex-direction: column;
     justify-content: center;
     margin-left: 15px;
-    margin-top: 40px;
     gap: 15px;
     font-weight: bold;
     text-align: center;
@@ -73,14 +86,6 @@
     font-weight: bold;
     text-align: center;
 }
-
-.mypets-card p , .mypets-fav-card p{
-    margin: 5px 0;
-    padding: 5px 0;
-    font-weight: 600;
-    text-align: center;
-}
-
 
 .pet-name{
     color: #ff6f00;
@@ -102,7 +107,6 @@
     font-size: 14px;
 }
 
-
 .btn.btn-primary {
     background-color: #ff8c42;
     color: white;
@@ -117,7 +121,7 @@
     background-color: #ff6f00;
 }
 
-/* Generic section title with lines */
+
 .section-title {
     display: flex;
     align-items: center;
@@ -132,17 +136,15 @@
 
 }
 
-/* Lines on each side */
 .section-title::before,
 .section-title::after {
     content: "";
     flex: 1;
-    height: .5px;              /* thickness of the line */
-    background: chocolate;         /* default line color */
+    height: .5px;             
+    background: chocolate;        
     opacity: 0.6;
 }
 
-/* Spacing for the lines */
 .section-title::before {
     margin-right: 10px;
 }
@@ -159,12 +161,6 @@
 .adopted-title::after {
     color: chocolate
 }
-
-
-
-
-
-
 
 
 

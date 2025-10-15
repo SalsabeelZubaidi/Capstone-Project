@@ -53,8 +53,8 @@
             {% for pet in favorite_pets %}
                 <div class="mypets-fav-card" >
                     <img src='{{pet.photo.url}}'/>
-                    <div class="card-content">
-                        <span><strong>{{ pet.breed }} {{ pet.type }}</span>
+                    <div class="fav-card-content">
+                        <span>{{ pet.breed }} {{ pet.type }}</span>
                     </div>
                 </div>
             {% endfor %}
