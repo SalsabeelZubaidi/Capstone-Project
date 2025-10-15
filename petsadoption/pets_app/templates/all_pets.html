@@ -19,6 +19,15 @@
     {% endif %}
 {%if pets%}
     <h2 class="allpets-h2">Explore All of Our Lovely Pets</h2>
+    <form method="GET" class="filter-form">
+    <label for="pet_type">Filter by Type:</label>
+        <select name="pet_type" id="pet_type" onchange="this.form.submit()">
+            <option value="all">All</option>
+            {% for t in types %}
+                <option value="{{ t }}" {% if selected_type == t %}selected{% endif %}>{{ t }}</option>
+            {% endfor %}
+        </select>
+    </form>
     <div class="card-container"> 
         {%for pet in pets%}
                 <div class="pet-cards">

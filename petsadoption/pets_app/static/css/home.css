@@ -36,7 +36,7 @@
     position: relative;
     width: 90%;
     height: 90%;
-    opacity: 0.8;
+    opacity: 0.5;
     left:110px;
 }
 
@@ -45,7 +45,7 @@
     text-align: center;
     padding: 20px;
     z-index: 1;
-    left:180px;
+    left:300px;
 }
 
 .home-welcome-msg h1 {

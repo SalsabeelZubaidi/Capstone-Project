@@ -41,21 +41,30 @@ def home(request):
     return render (request, 'home.html')
 
 class AllPets(LoginRequiredMixin, ListView):
-    model= Pets
-    template_name='all_pets.html'
-    context_object_name = 'pets' #this to loop over it in the html file
+    model = Pets
+    template_name = 'all_pets.html'
+    context_object_name = 'pets'
+
+    def get_queryset(self):
+        queryset = Pets.objects.all()
+        pet_type = self.request.GET.get('pet_type')
+
+        if pet_type and pet_type.lower() != "all":
+            queryset = queryset.filter(type__iexact=pet_type)
+
+        return queryset
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        if self.request.user.is_authenticated:
-            # get IDs of pets the user has favorited
-            context['favorite_pet_ids'] = PetUser.objects.filter(
-                user=self.request.user,
-                is_favorite=True
-            ).values_list('pet_id', flat=True)
-        else:
-            context['favorite_pet_ids'] = []
+        context['favorite_pet_ids'] = PetUser.objects.filter(
+            user=self.request.user,
+            is_favorite=True
+        ).values_list('pet_id', flat=True)
+        context['selected_type'] = self.request.GET.get('pet_type', '')
+        context['types'] = Pets.objects.values_list('type', flat=True).distinct()
         return context
+
+
 
 class Profile(LoginRequiredMixin, View):
     model=User

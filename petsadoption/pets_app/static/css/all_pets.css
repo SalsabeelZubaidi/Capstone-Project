@@ -86,6 +86,28 @@
     background-color: #e3bb2c;
 }
 
+.filter-form {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10px;
+    margin: 20px 80px;
+}
+
+.filter-form select {
+    padding: 6px 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+.filter-form select:hover {
+    border-color: #888;
+}
+
+
 
 @media (max-width: 1024px) {
     .pet-cards {
