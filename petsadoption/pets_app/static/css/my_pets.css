@@ -1,51 +1,193 @@
-.mypets-mainConatiner{
+.mypets-mainConatiner {
     display: flex;
     flex-direction: column;
-    gap:50px;
- 
+    gap: 50px;
+    /* padding: 40px; */
+    min-height: 100vh;
 }
-
-.adopted-card{
-    border:3px solid rgb(151, 148, 148);
-    padding:20px;
-    border-radius: 10px;
-    background-color: antiquewhite;
-}
-.favs-container{
+.cards_container {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    gap:20px;
+    gap: 30px;
+    justify-content: center;
 }
-.adopted_container{
+
+
+.mypets-card, .mypets-fav-card {
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
-    gap:20px;
+    justify-content: flex-start;
+    width: 100%;
+    max-width: 450px;
+    min-height: 200px;
+    padding: 15px;
+    border-radius: 10px;
+    border-radius: 50px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: black;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-bottom: 70px;
 }
-.card{
-    border: 2.5px solid rgba(108, 72, 72, .5);
+
+.mypets-card:hover ,.mypets-fav-card:hover{
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+}
+.mypets-card img{
+    width: 45%;
+    height:max-content;
+    height: 190px;
+    object-fit: cover;
+    border-radius: 400px;
+    margin-bottom: 10px;
+    border:5px solid #BDE3C3;
+
+}
+
+.mypets-fav-card img{
+    width: 45%;
+    height: 190px;
+    object-fit: cover;
+    border-radius: 300px;
+    margin-bottom: 10px;
+    /* border:5px solid rgb(162, 202, 113); */
+    border:5px solid rgb(246, 233, 107);
+
+}
+
+.card-content {
     display: flex;
     flex-direction: column;
-    padding:20px;
-    height:350px;
-    width:400px;
-    border-radius: 10px;
-    gap:15px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-    margin: 20px;
+    justify-content: center;
+    margin-left: 15px;
+    margin-top: 40px;
+    gap: 15px;
+    font-weight: bold;
+    text-align: center;
+}
+.card-content span{
+    font-weight: bold;
+    text-align: center;
+}
+
+.mypets-card p , .mypets-fav-card p{
+    margin: 5px 0;
+    padding: 5px 0;
+    font-weight: 600;
+    text-align: center;
+}
+
+
+.pet-name{
+    color: #ff6f00;
+}
+
+.inline-form {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+
+.pet-name-input {
+    flex: 1;
+    min-width: 100px;
+    padding: 6px 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+}
+
+
+.btn.btn-primary {
+    background-color: #ff8c42;
+    color: white;
+    border: none;
+    padding: 6px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.btn.btn-primary:hover {
+    background-color: #ff6f00;
+}
+
+/* Generic section title with lines */
+.section-title {
+    display: flex;
+    align-items: center;
+    margin: 40px 0 20px 0;
+}
+
+.section-title span {
+    font-size: 40px;
+    font-weight: bold;
+    text-transform: capitalize;
+    font-family: "Dancing Script", cursive;
 
 }
-img{
-    border-radius: 5px;
-    /* border:2px double grey; */
-}
-.mypets-mainConatiner h2{
-    padding: 20px;
-    /* background-color: red; */
-    margin-left: 20px;
-    margin-bottom: -60px;
-    font-size: 28px;
-    color: rgb(161, 13, 13);
 
+/* Lines on each side */
+.section-title::before,
+.section-title::after {
+    content: "";
+    flex: 1;
+    height: .5px;              /* thickness of the line */
+    background: chocolate;         /* default line color */
+    opacity: 0.6;
+}
+
+/* Spacing for the lines */
+.section-title::before {
+    margin-right: 10px;
+}
+
+.section-title::after {
+    margin-left: 10px;
+}
+
+.adopted-title span {
+    color: chocolate
+}
+
+.adopted-title::before,
+.adopted-title::after {
+    color: chocolate
+}
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 768px) {
+    .cards_container {
+        justify-content: center;
+    }
+
+    .mypets-card, .mypets-fav-card {
+        flex-direction: column;
+        max-width: 300px;
+    }
+
+    .mypets-card img, .mypets-fav-card img {
+        width: 100%;
+        height: auto;
+        border-radius: 15px;
+    }
+
+    .card-content {
+        margin-left: 0;
+        margin-top: 15px;
+        text-align: center;
+    }
 }

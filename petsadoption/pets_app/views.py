@@ -154,3 +154,35 @@ def toggle_favorite(request, pet_id):
         messages.info(request, f"{pet.type} has been removed from your favorites.")
     
     return redirect('all-pets')
+
+# @login_required
+# def name_adopted_pet(request, adoption_id):
+#     adoption = get_object_or_404(
+#         AdoptionRequest, id=adoption_id, user=request.user, adoption_status='Approved'
+#     )
+
+#     if request.method == 'POST':
+#         form = PetNameForm(request.POST, instance=adoption)
+#         if form.is_valid():
+#             form.save()
+#             messages.success(request, f"You named your {adoption.pet.type} '{adoption.pet_name}'! 🐶")
+#             return redirect('my-pets')
+#     else:
+#         form = PetNameForm(instance=adoption)
+
+#     return render(request, 'name_pet.html', {'form': form, 'adoption': adoption})
+
+
+@login_required
+def name_pet_inline(request, adoption_id):
+    adoption = get_object_or_404(
+        AdoptionRequest, id=adoption_id, user=request.user, adoption_status='Approved'
+    )
+
+    if request.method == 'POST':
+        pet_name = request.POST.get('pet_name')
+        if pet_name:
+            adoption.pet_name = pet_name
+            adoption.save()
+            return redirect('my-pets')
+

@@ -44,6 +44,7 @@ class AdoptionRequest(models.Model):
     adoption_status = models.CharField(max_length=10, choices=adoption_status_options, default='pending')
     requested_at=models.DateField(auto_now=True)
     care_plan=models.TextField()
+    pet_name = models.CharField(max_length=100, blank=True, null=True) 
 
     def __str__(self):  
         return f"{self.user.username} - {self.pet.type}"  
