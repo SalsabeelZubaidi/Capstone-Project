@@ -24,17 +24,17 @@ Admin Stories:
 
 
 To install and run the project:
-1- git clone 
-2- cd capstone-project then cd petsadoption
-3- pipenv install django
-4- pipenv shell
+1. git clone 
+2. cd capstone-project then cd petsadoption
+3. pipenv install django
+4. pipenv shell
 (create Database)
-in your terminal:.
-6- psql -U postgres 
+in your terminal:
+5. psql -U postgres 
 enter your password then :
-7- CREATE DATABASE dbname
+6. CREATE DATABASE dbname
 login into pgAdmnin and check the db was created succesfully
-8- change database credentials in DATABASES in (settings.py) 
-8- python manage.py makemigrations
-9- python manage.py migrate
-10- python manage.py runserver
+7. change database credentials in DATABASES in (settings.py) 
+8. python manage.py makemigrations
+9. python manage.py migrate
+10. python manage.py runserver
