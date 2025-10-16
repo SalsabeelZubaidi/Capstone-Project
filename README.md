@@ -3,7 +3,7 @@
 ![PET ADOPTION ERD](<Screenshot 2025-10-12 111608.png>)
 
 
-User Stories:
+# User Stories:
 - As a user, I want to sign up and log in.
 - As a user, I want to view a list of available pets.
 - As a user, I can choose pets I’m interested in adopting.
@@ -16,7 +16,7 @@ User Stories:
 - As a user, I want to filter pets by type.
 - As a user, I want to add my own pets so that they are visible only to me.
 
-Admin Stories: 
+# Admin Stories: 
 - As an admin, I want to add new pets with their information.
 - As an admin, I want to edit or delete existing pets.
 - As an admin, I want to view and manage user profiles.
@@ -25,7 +25,7 @@ Admin Stories:
 
 
 
-To Install And Run The Project:
+# To Install And Run The Project:
 1. git clone 
 2. cd capstone-project then cd petsadoption
 3. pipenv install django
