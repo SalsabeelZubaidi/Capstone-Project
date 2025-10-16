@@ -13,7 +13,8 @@ User Stories:
 - As a user, I want to submit an adoption request for a pet via a form.
 - As a user, I want to see the status of my adoption requests (pending, approved, rejected).
 - As a user, I want to see a list of my adopted pets.
-- As a user, I want to filter pets by age, breed, or type.
+- As a user, I want to filter pets by type.
+- As a user, I want to add my own pets so that they are visible only to me.
 
 Admin Stories: 
 - As an admin, I want to add new pets with their information.
