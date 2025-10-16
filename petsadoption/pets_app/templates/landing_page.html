@@ -31,16 +31,31 @@
         </div>
         <div class="welcomeText">
             <h1>WELCOME TO PawPal</h1>
-            <p> where every paw deserves a home.</p>
+            <p> where every paw deserves a home</p>
         </div>
     </div>
 
-    <div class='second-row'>
+    <div class='second-row' id="about-us">
         <h1> about us </h1>
         <p> At PawPal, we believe every pet deserves a loving home, and every human deserves a loyal companion! 🐶🐱 <br/>
         Our platform makes finding your perfect furry friend simple, fun, and heartwarming.  </p>
         <strong>Browse adorable pets, learn their stories, and start your adoption journey today. Because sometimes, love comes with paws! </strong>
+
+        <div class='ready-text'>
+        <p> 
+                Ready to start your adoption journey?
+                <span >
+                   <a href="{% url 'signup'%}" style="color: orange; font-weight:bold;"> Create an account </a>
+                </span> 
+                or 
+                <span >
+                    <a href="{% url 'login'%}" style="color: orange; font-weight:bold;" >log in</a>
+                </span> 
+                to join our PawPal family!  
+            </p>
+        </div>
     </div>
+
 </div>
 {% endblock %}
 

@@ -27,10 +27,11 @@
 }
 
 .welcomeText p{
-    font-family: "Edu NSW ACT Cursive";
+    /* font-family: "Edu NSW ACT Cursive"; */
+    font-family: "Dancing Script";
+
     color:#fa7e18;
-    font-size: 25px;
-    font-weight: bold;
+    font-size: 40px;
 }
 
 .second-row{
@@ -55,4 +56,10 @@
 .second-row strong{
     font-size: 20px;
     text-transform: capitalize;
+}
+.ready-text{
+    background-color: white;
+    padding:17px;
+    margin: 25px auto;
+    
 }

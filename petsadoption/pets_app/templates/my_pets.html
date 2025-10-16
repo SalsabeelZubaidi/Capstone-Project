@@ -48,14 +48,16 @@
    <div class="section-title adopted-title">
         <span>My Favorite Pets</span>
     </div>
-    <div class="cards_container">
+    <div class="fav-cards-container">
         {% if favorite_pets %}
             {% for pet in favorite_pets %}
-                <div class="mypets-fav-card" >
-                    <img src='{{pet.photo.url}}'/>
-                    <div class="fav-card-content">
-                        <span>{{ pet.breed }} {{ pet.type }}</span>
-                    </div>
+                <div class="mypets-fav-card">
+                    <a href="{% url 'pet-detail' pet.id %}">
+                        <img src='{{ pet.photo.url }}'/>
+                        <div class="fav-card-content">
+                            <span>{{ pet.breed }} {{ pet.type }}</span>
+                        </div>
+                    </a>
                 </div>
             {% endfor %}
         {% else %}

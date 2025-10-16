@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{%block head%}
+<link rel='stylesheet' href="{%static 'css/pet_detail.css'%}" />
+{%endblock%}
+{% block content %}
+<div class="pet-detail-container">
+    <img src="{{ pet.photo.url }}" alt="{{ pet.type }}" />
+    <h2>{{ pet.type }} - {{ pet.breed }}</h2>
+    <p>Availability: {{ pet.is_available }}</p>
+    <p>{{pet.is_favorite}} <p>
+    {% if pet.description %}
+        <p>Description: {{ pet.description }}</p>
+    {% endif %}
+
+    {% if not adoption_request_exists %}
+        <button onclick="location.href='{% url 'adopt_pet' pet.id %}'">Apply for Adoption</button>
+    {% else %}
+        <p>You have already submitted an adoption request for this pet.</p>
+    {% endif %}
+</div>
+{% endblock %}

@@ -23,6 +23,7 @@
                 <li><button type="submit" class="formbtn">Logout</button></li>
                 </form>
                 {% else %}
+                <li><a href="{% url 'landing' %}#about-us">about us</a></li>
                 <li><a href="{% url 'signup'%}">signup</a></li>
                 <li><a href="{% url 'login'%}">login</a></li>
                 {% endif %}

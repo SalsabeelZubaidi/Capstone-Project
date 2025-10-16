@@ -176,3 +176,12 @@ def name_pet_inline(request, adoption_id):
             adoption.save()
             return redirect('my-pets')
 
+@login_required
+def pet_detail(request, pet_id):
+    pet = get_object_or_404(Pets, id=pet_id)
+    adoption_request_exists = AdoptionRequest.objects.filter(user=request.user, pet=pet).exists()
+    return render(request, 'pet_detail.html', {
+        'pet': pet,
+        'adoption_request_exists': adoption_request_exists
+    })
+
