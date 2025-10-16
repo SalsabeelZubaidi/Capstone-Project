@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/add_pet.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="form-container">
+    <h2>Add Your Pet</h2>
+    <span style='font-size:13px'>* Note: This pet will only be visible to you, it can't be seen by other users. </span>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Add Pet</button>
+    </form>
+</div>
+{% endblock %}

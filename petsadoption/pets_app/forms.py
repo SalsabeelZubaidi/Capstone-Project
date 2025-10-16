@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
-from .models import AdoptionRequest
+from .models import AdoptionRequest, Pets
 
 class CustomUserCreationForm(UserCreationForm):
       # add extra field if you want
@@ -34,4 +34,10 @@ class PetNameForm(forms.ModelForm):
             'class': 'form-control',
             'placeholder': 'Enter your pet’s new name'
             })
-        }                    
+        }
+
+
+class UserPetForm(forms.ModelForm):
+    class Meta:
+        model = Pets
+        fields = ['pet_name', 'breed', 'type', 'photo', 'description']

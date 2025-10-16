@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .forms import CustomUserCreationForm
+from .forms import CustomUserCreationForm, UserPetForm
 from django.contrib.auth import login
 from django.http import HttpResponse
 from django.views import View
@@ -10,6 +10,8 @@ from .forms import *
 from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import TemplateView
+from django.urls import reverse_lazy
+from django.views.generic import CreateView
 
 #my Views
 class LandingPage(View):   #this can be accessed only by new or logged out users
@@ -46,7 +48,8 @@ class AllPets(LoginRequiredMixin, ListView):
     context_object_name = 'pets'
 
     def get_queryset(self):
-        queryset = Pets.objects.all()
+        # Only show public/admin pets
+        queryset = Pets.objects.filter(added_by__isnull=True)
         pet_type = self.request.GET.get('pet_type')
 
         if pet_type and pet_type.lower() != "all":
@@ -63,8 +66,6 @@ class AllPets(LoginRequiredMixin, ListView):
         context['selected_type'] = self.request.GET.get('pet_type', '')
         context['types'] = Pets.objects.values_list('type', flat=True).distinct()
         return context
-
-
 
 class Profile(LoginRequiredMixin, View):
     model=User
@@ -111,8 +112,14 @@ class MyPets(LoginRequiredMixin, TemplateView):
             petuser__user=user,
             petuser__is_favorite=True
         ).distinct()
+        
+        # User-added pets /// only shown to the user himself
+        context['user_added_pets'] = Pets.objects.filter(added_by=user)
 
         return context
+
+
+    
 class AdoptRequest(LoginRequiredMixin, ListView):  #to return to the user all of his adoption requests
     model=AdoptionRequest
     template_name='profile.html'
@@ -185,3 +192,15 @@ def pet_detail(request, pet_id):
         'adoption_request_exists': adoption_request_exists
     })
 
+
+class AddPetView(LoginRequiredMixin, CreateView):
+    model = Pets
+    form_class = UserPetForm
+    template_name = 'add_pet.html'
+    success_url = reverse_lazy('my-pets')
+
+    def form_valid(self, form):
+        pet = form.save(commit=False)
+        pet.added_by = self.request.user  # private pet
+        pet.save()
+        return super().form_valid(form)

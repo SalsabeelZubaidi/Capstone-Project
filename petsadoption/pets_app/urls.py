@@ -2,6 +2,7 @@ from django.urls import path, include
 from django.contrib.auth import views as auth_views
 from django.contrib.auth.views import LogoutView
 from . import views 
+from .views import AddPetView
 
 urlpatterns = [
     path('', views.LandingPage.as_view() , name='landing'),
@@ -17,5 +18,6 @@ urlpatterns = [
     path('toggle_fav/<int:pet_id>/', views.toggle_favorite, name='toggle_fav'),
     path('name-pet-inline/<int:adoption_id>/', views.name_pet_inline , name='name-pet-inline'),
     path('pet/<int:pet_id>/', views.pet_detail, name='pet-detail'),
+    path('add-pet/', AddPetView.as_view(), name='add-pet'),
 
 ]

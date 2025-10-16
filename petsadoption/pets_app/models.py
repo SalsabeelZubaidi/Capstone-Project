@@ -25,8 +25,11 @@ class Pets(models.Model):
     photo=models.ImageField(upload_to='pet_photos/', blank=True, null=True)
     is_available=models.CharField(max_length=20, choices=availability_options, default='availabile')
     adoption_status = models.CharField(max_length=10, choices=adoption_status_options, default='pending')
+    description = models.TextField(blank=True)
+    pet_name = models.CharField(max_length=50, blank=True) 
+    added_by = models.ForeignKey(User, null=True, blank=True, on_delete=models.SET_NULL)
     def __str__(self):   #to retrun the object name /// pet name // return object val as String
-        return self.type
+        return self.breed
 
 class PetUser(models.Model):
     user=models.ForeignKey(User, on_delete=models.CASCADE)

@@ -4,9 +4,19 @@
     gap: 50px;
     min-height: 100vh;
 }
+.add-pet-btn{
+    color: white;
+    font-size: 15px;
+    border:1px solid chocolate;
+    background-color: chocolate;
+    border-radius: 10px;
+    padding: 15px;
+    margin: 0 auto;
+}
+
 .cards_container {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     flex-wrap: wrap;
     gap: 50px;
     justify-content: center;
@@ -15,7 +25,7 @@
 
 .fav-cards-container {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     flex-wrap: wrap;
     gap: 50px;
     justify-content: center;
@@ -33,13 +43,9 @@
     min-height: 200px;
     padding: 15px;
     border-radius: 10px;
-    border-radius: 50px;
-    background-repeat: no-repeat;
-    background-size: cover;
     color: black;
     position: relative;
     overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
     margin-bottom: 70px;
     margin:auto 25px;
 }
@@ -62,6 +68,8 @@
     transform: translateY(-7px);
 
 }
+
+
 .mypets-card img{
     width: 50%;
     height:max-content;
@@ -173,11 +181,11 @@
     margin-left: 10px;
 }
 
-.adopted-title span {
+.section-title span {
     color: chocolate
 }
 
-.adopted-title::before,
+.section-title::before,
 .adopted-title::after {
     color: chocolate
 }

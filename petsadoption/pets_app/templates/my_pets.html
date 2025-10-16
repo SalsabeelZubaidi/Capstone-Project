@@ -13,7 +13,8 @@
 
 {% block content %}
 <div class="mypets-mainConatiner"> 
-    <div class="section-title adopted-title">
+    <a href="{% url 'add-pet' %}" class="add-pet-btn">+ Add Your Own Pet</a>
+    <div class="section-title">
         <span>My Adopted Pets</span>
     </div>
     <div class="cards_container">
@@ -23,11 +24,10 @@
                         <img src='{{pet.photo.url}}'/>
                         <div class="card-content">
                             <span>{{ pet.breed }} {{ pet.type }}</span>
-                    {% for adoption in pet.adoptionrequest_set.all %}
+                        {% for adoption in pet.adoptionrequest_set.all %}
                         {% if adoption.user == request.user and adoption.adoption_status == 'Approved' %}
                             {% if adoption.pet_name %}
                                 <p>Your Pet’s Name Is <strong class='pet-name'>{{ adoption.pet_name }} </strong></p>
-                        </div>
                             {% else %}
                                 <form method="POST" action="{% url 'name-pet-inline' adoption.id %}" class="inline-form">
                                     {% csrf_token %}
@@ -37,6 +37,7 @@
                             {% endif %}
                         {% endif %}
                     {% endfor %}
+                    </div>
                 </div>
             {% endfor %}
         {% else %}
@@ -45,7 +46,7 @@
     </div>
 
 
-   <div class="section-title adopted-title">
+   <div class="section-title">
         <span>My Favorite Pets</span>
     </div>
     <div class="fav-cards-container">
@@ -64,5 +65,27 @@
             <p>You have no favorite pets yet.</p>
         {% endif %}
     </div>
+
+
+    <div class="section-title">
+        <span>My Personal pets</span>
+    </div>
+    <div class="fav-cards-container">
+        {% if user_added_pets %}
+        {% for pet in user_added_pets %}
+            <div class="mypets-fav-card">
+                <img src="{{ pet.photo.url }}" alt="{{ pet.pet_name|default:pet.breed }}">
+                <div class="card-content">
+                    <span>{{ pet.pet_name}}</span>
+                    <span>{{ pet.pet_name}} {{ pet.type }}</span>
+                    <p>{{ pet.description }}</p>
+                </div>
+            </div>
+        {% endfor %}
+    {% else %}
+        <p>You haven’t added any pets yet.</p>
+    {% endif %}
+    </div>
+
 </div>
 {% endblock %}
