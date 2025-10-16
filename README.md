@@ -24,17 +24,18 @@ Admin Stories:
 - As an admin, I want to approve/decline adoption requests.
 
 
-To install and run the project:
+
+To Install And Run The Project:
 1. git clone 
 2. cd capstone-project then cd petsadoption
 3. pipenv install django
 4. pipenv shell
-(create Database)
-in your terminal:
+- (create Database)
+- in your terminal:
 5. psql -U postgres 
-enter your password then :
+- enter your password then :
 6. CREATE DATABASE dbname
-login into pgAdmnin and check the db was created succesfully
+- login into pgAdmnin and check the db was created succesfully
 7. change database credentials in DATABASES in (settings.py) 
 8. python manage.py makemigrations
 9. python manage.py migrate
